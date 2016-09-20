@@ -7,11 +7,11 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
-@MessageDriven(name = "MdbContabilidade", activationConfig = {
+@MessageDriven(name = "MdbFinanceiro", activationConfig = {
 	    @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "topic/TopicVenda"),
 	    @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
 	    @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
-public class MdbContabilidade implements MessageListener{
+public class MdbFinanceiro implements MessageListener{
 
 	@Override
 	public void onMessage(Message rcvMessage) {
@@ -19,7 +19,7 @@ public class MdbContabilidade implements MessageListener{
         try {
             if (rcvMessage instanceof TextMessage) {
                 msg = (TextMessage) rcvMessage;
-                System.out.println("Received Message from "+this.getClass().getSimpleName()+" " + msg.getText());
+                System.out.println("Received Message from  "+this.getClass().getSimpleName()+" " + msg.getText());
             } else {
                 System.out.println("Message of wrong type: " + rcvMessage.getClass().getName());
             }

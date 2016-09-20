@@ -1,5 +1,5 @@
 package br.univel.mdb;
 
-public class MdbFicanceiro {
+public class MdbLogistica {
 
 }
